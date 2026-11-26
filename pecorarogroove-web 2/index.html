@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marco Pecoraro — Official Website</title>
+<meta name="description" content="Marco Pecoraro — Venezuelan DJ & producer. House, Tech House, Minimal / Deep Tech.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Permanent+Marker&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#070707; --ink:#101010; --panel:#151515; --line:#262626;
+  --gold:#B9A47C; --sun:#FFDD7E; --vblue:#0D37A9; --vred:#DA0F00;
+  --teal:#AEFEFA; --cream:#EEE7D8; --muted:#9c968b;
+  --display:'Bebas Neue',Impact,sans-serif; --wide:'Syncopate',sans-serif;
+  --script:'Permanent Marker',cursive; --cond:'Barlow Condensed',sans-serif; --body:'Barlow',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.65;overflow-x:hidden;padding-bottom:64px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#000}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+
+/* ---------- top bar ---------- */
+.topbar{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 4vw;transition:background .3s,backdrop-filter .3s}
+.topbar.solid{background:rgba(7,7,7,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .mini-logo img{height:34px;width:auto}
+.menu-btn{display:flex;align-items:center;gap:12px;background:none;border:1px solid rgba(238,231,216,.35);color:var(--cream);font-family:var(--wide);font-size:11px;letter-spacing:.35em;padding:10px 16px;cursor:pointer;border-radius:2px}
+.menu-btn:hover{border-color:var(--teal);color:var(--teal)}
+.burger{width:18px;height:10px;position:relative}
+.burger:before,.burger:after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor}
+.burger:before{top:0}.burger:after{bottom:0}
+.overlay{position:fixed;inset:0;z-index:60;background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;opacity:0;pointer-events:none;transition:opacity .35s}
+.overlay.open{opacity:1;pointer-events:auto}
+.overlay .close{position:absolute;top:18px;right:4vw;background:none;border:none;color:var(--cream);font-family:var(--wide);font-size:11px;letter-spacing:.35em;cursor:pointer}
+.overlay .close:hover{color:var(--teal)}
+.overlay nav a{display:block;font-family:var(--display);font-size:clamp(44px,9vw,92px);line-height:1.02;letter-spacing:.04em;text-align:center;transition:color .2s,letter-spacing .3s}
+.overlay nav a:hover{color:var(--teal);letter-spacing:.09em}
+.overlay .ov-stripe{width:min(520px,80vw);margin-top:28px;opacity:.9}
+
+/* ---------- header / hero ---------- */
+header.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:120px 4vw 70px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(img/hero.webp) center 30%/cover no-repeat;filter:saturate(1.05)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,7,.55) 0%,rgba(7,7,7,.15) 35%,rgba(7,7,7,.65) 70%,var(--black) 100%)}
+.hero > *:not(.hero-bg){position:relative}
+.kicker{font-family:var(--wide);font-size:12px;letter-spacing:.6em;color:var(--cream);opacity:.85;margin-bottom:18px}
+.hero .symbol{width:64px;margin:0 auto 18px;opacity:.95;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1.logo{margin:0 auto}
+h1.logo img{width:min(560px,82vw);height:auto;filter:drop-shadow(0 6px 30px rgba(0,0,0,.6))}
+h1.logo span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.hero .stripe{width:min(860px,94vw);margin:28px auto 26px}
+.tagline{font-family:var(--cond);font-weight:600;letter-spacing:.32em;text-transform:uppercase;font-size:14px;color:var(--sun);margin-bottom:26px}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.socials a{display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(238,231,216,.28);background:rgba(7,7,7,.45);backdrop-filter:blur(6px);font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;transition:all .2s;border-radius:2px}
+.socials a svg{width:18px;height:18px;fill:currentColor}
+.socials a:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.scroll-cue{margin-top:40px;font-family:var(--wide);font-size:10px;letter-spacing:.5em;opacity:.6}
+
+/* ---------- sections ---------- */
+section{padding:110px 0;position:relative}
+.sec-head{display:flex;align-items:flex-end;gap:22px;margin-bottom:46px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--script);font-weight:400;font-size:clamp(44px,7vw,78px);line-height:.95;transform:rotate(-4deg);transform-origin:left bottom;color:var(--cream)}
+.sec-head .num{font-family:var(--wide);font-size:11px;letter-spacing:.45em;color:var(--teal);padding-bottom:12px}
+.sec-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:18px;min-width:60px}
+.divider{height:22px;background:url(img/stripe.webp) center/contain no-repeat;margin:0 auto;width:min(900px,90vw);opacity:.95}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.frame{border:2px solid var(--gold);outline:1px solid rgba(185,164,124,.35);outline-offset:6px;padding:40px 38px;background:linear-gradient(180deg,#0d0d0d,#090909)}
+.frame p{margin-bottom:18px;color:#ddd5c4}
+.frame p:first-child{font-family:var(--cond);font-size:22px;line-height:1.35;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--cream)}
+.frame strong{color:var(--sun);font-weight:600}
+.about-photo{position:relative}
+.about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:70% 40%;border-radius:2px}
+.about-photo .cap{position:absolute;left:-18px;bottom:28px;background:var(--black);border:1px solid var(--gold);padding:10px 16px;font-family:var(--wide);font-size:10px;letter-spacing:.4em}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.facts div{background:var(--black);padding:16px 14px}
+.facts b{display:block;font-family:var(--display);font-size:28px;letter-spacing:.04em;color:var(--teal);line-height:1}
+.facts span{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+.supported{margin-top:70px;text-align:center}
+.supported h3{font-family:var(--wide);font-size:12px;letter-spacing:.55em;color:var(--muted);font-weight:400;margin-bottom:22px}
+.supported ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px}
+.supported li{font-family:var(--display);font-size:clamp(30px,4.4vw,52px);letter-spacing:.03em;line-height:1.05}
+.supported li:nth-child(odd){color:var(--cream)}
+.supported li:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--cream)}
+
+/* mailing list */
+.mail{background:radial-gradient(ellipse at 20% 0%,rgba(13,55,169,.35),transparent 60%),radial-gradient(ellipse at 90% 100%,rgba(218,15,0,.22),transparent 55%),var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+.mail .inner{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.mail h3{font-family:var(--display);font-size:clamp(40px,5vw,62px);line-height:.95;letter-spacing:.02em}
+.mail h3 em{font-style:normal;color:var(--sun)}
+.mail p{color:var(--muted);margin-top:10px}
+.mail form{display:flex;gap:0;border:1px solid var(--cream)}
+.mail input{flex:1;min-width:0;background:transparent;border:none;color:var(--cream);font:inherit;padding:16px 18px;outline:none}
+.mail input::placeholder{color:#777}
+.mail button,.btn{background:var(--cream);color:#000;border:none;font-family:var(--wide);font-weight:700;font-size:11px;letter-spacing:.3em;padding:0 22px;cursor:pointer;transition:background .2s}
+.mail button:hover,.btn:hover{background:var(--teal)}
+.mail .hint{font-size:13px;margin-top:10px;color:#8a857b}
+.hp{position:absolute;left:-9999px}
+
+/* events = news */
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.ev{background:var(--panel);border:1px solid var(--line);transition:transform .3s,border-color .3s;display:flex;flex-direction:column}
+.ev:hover{transform:translateY(-6px);border-color:var(--gold)}
+.ev .thumb{aspect-ratio:1/1;overflow:hidden;background:#000}
+.ev .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ev:hover .thumb img{transform:scale(1.06)}
+.ev .meta{padding:16px 18px 20px;display:flex;flex-direction:column;gap:4px;flex:1}
+.ev time{font-family:var(--wide);font-size:10px;letter-spacing:.4em;color:var(--teal)}
+.ev h4{font-family:var(--display);font-size:30px;letter-spacing:.03em;line-height:1}
+.ev .city{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--muted)}
+.ev .more{margin-top:auto;padding-top:12px;font-family:var(--cond);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:13px;color:var(--sun)}
+
+/* releases = songs */
+#songs{background:linear-gradient(180deg,var(--black),#0b0b0b 40%,var(--black))}
+.store-logos{display:flex;gap:26px;align-items:center;margin:-18px 0 36px;flex-wrap:wrap;font-family:var(--wide);font-size:11px;letter-spacing:.35em;color:var(--muted)}
+.store-logos a{color:var(--cream);border-bottom:1px solid var(--gold);padding-bottom:3px}
+.store-logos a:hover{color:var(--teal)}
+.releases{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:30px 24px}
+.rel{position:relative}
+.rel .cover{aspect-ratio:1/1;overflow:hidden;background:#000;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.rel .cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.rel .cover:after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;font-size:42px;color:#000;background:rgba(174,254,250,.0);opacity:0;transition:all .3s}
+.rel:hover .cover:after{opacity:1;background:rgba(174,254,250,.78)}
+.rel:hover .cover img{transform:scale(1.05)}
+.rel .tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--black);color:var(--sun);font-family:var(--wide);font-size:9px;letter-spacing:.3em;padding:6px 9px;border:1px solid var(--sun)}
+.rel h4{font-family:var(--display);font-size:30px;letter-spacing:.03em;line-height:1;margin-top:16px}
+.rel .sub{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:13px;color:var(--muted)}
+.rel .listen{display:inline-block;margin-top:10px;font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--teal)}
+.rel .listen:hover{color:var(--sun)}
+
+/* photos */
+.photos{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:170px;gap:14px}
+.ph{position:relative;overflow:hidden;background:#111;cursor:zoom-in}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s,filter .4s}
+.ph:hover img{transform:scale(1.04)}
+.ph.cut{background:radial-gradient(ellipse at 50% 15%,#5a5a5a 0%,#232323 45%,#0b0b0b 100%)}
+.ph.cut img{object-fit:contain;object-position:bottom center}
+.ph.cut.o{background:radial-gradient(ellipse at 50% 30%,#ff8a3d 0%,#6a1c06 55%,#120604 100%)}
+.ph.cut.p{background:radial-gradient(ellipse at 50% 20%,var(--teal) 0%,#1d5f72 50%,#06121a 100%)}
+.p1{grid-column:span 3;grid-row:span 3}.p2{grid-column:span 3;grid-row:span 2}
+.p3{grid-column:span 2;grid-row:span 2}.p4{grid-column:span 1;grid-row:span 1}
+.p5{grid-column:span 2;grid-row:span 2}.p6{grid-column:span 2;grid-row:span 2}.p7{grid-column:span 2;grid-row:span 2}
+.lightbox{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.94);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s;cursor:zoom-out;padding:4vw}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-height:88vh;max-width:92vw;object-fit:contain}
+
+/* videos / sets */
+#videos{overflow:hidden}
+#videos .bg-hand{position:absolute;right:-60px;top:40px;width:340px;opacity:.16;pointer-events:none;transform:rotate(12deg)}
+#videos .bg-lasers{position:absolute;left:-120px;bottom:-80px;width:520px;opacity:.12;pointer-events:none}
+.sets{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative}
+.set{position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end;padding:20px;isolation:isolate}
+.set img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .7s}
+.set:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.85))}
+.set:hover img{transform:scale(1.06)}
+.set .play{position:absolute;top:18px;right:18px;width:54px;height:54px;border-radius:50%;border:2px solid var(--cream);display:grid;place-items:center;transition:all .25s}
+.set .play:after{content:"";border-left:14px solid var(--cream);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.set:hover .play{background:var(--teal);border-color:var(--teal)}
+.set:hover .play:after{border-left-color:#000}
+.set small{display:block;font-family:var(--wide);font-size:10px;letter-spacing:.4em;color:var(--teal)}
+.set b{font-family:var(--display);font-size:32px;letter-spacing:.03em;line-height:1;font-weight:400}
+
+/* press */
+.press{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+.press .collage{position:relative}
+.press .collage img{width:100%;aspect-ratio:9/14;object-fit:cover;border:2px solid var(--gold)}
+.press .collage .sym{position:absolute;right:-30px;bottom:-30px;width:120px;border:none;aspect-ratio:auto;filter:drop-shadow(0 0 18px rgba(174,254,250,.5))}
+.press p{color:#d7cfbf;margin-bottom:26px;max-width:60ch}
+.dl{display:flex;flex-direction:column;gap:12px}
+.dl a{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border:1px solid var(--line);background:var(--panel);font-family:var(--cond);font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:all .2s}
+.dl a span{font-family:var(--wide);font-size:10px;letter-spacing:.3em;color:var(--muted)}
+.dl a:hover{border-color:var(--teal);color:var(--teal);padding-left:30px}
+.polite{margin-top:34px;display:flex;align-items:center;gap:18px;color:var(--muted);font-size:14px}
+.polite img{height:auto;width:120px;flex:none}
+
+/* contact */
+#contact{background:url(img/hero.webp) center 30%/cover fixed;padding:0}
+#contact .shade{background:linear-gradient(90deg,rgba(7,7,7,.96) 0%,rgba(7,7,7,.86) 55%,rgba(7,7,7,.55) 100%);padding:110px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.booking-card{border:2px solid var(--cream);padding:0;overflow:hidden;align-self:start}
+.booking-card .band{background:url(img/collage.webp) center/cover;padding:26px 24px;text-align:center}
+.booking-card .band b{display:block;font-family:var(--display);font-size:54px;letter-spacing:.06em;line-height:1;color:#fff;text-shadow:0 3px 0 #000,0 0 22px rgba(0,0,0,.8)}
+.booking-card .band span{font-family:var(--display);font-size:24px;letter-spacing:.06em;color:#fff;text-shadow:0 2px 0 #000}
+.booking-card .body{padding:22px 24px;background:rgba(7,7,7,.8);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.booking-card .body code{font-family:var(--cond);font-size:18px;letter-spacing:.06em}
+.btn{padding:12px 18px}
+.content-links{margin-top:28px}
+.content-links h3{font-family:var(--wide);font-weight:400;font-size:12px;letter-spacing:.55em;margin-bottom:14px}
+form.contact{display:grid;gap:14px}
+form.contact label{font-family:var(--wide);font-size:10px;letter-spacing:.4em;color:var(--muted)}
+form.contact input,form.contact textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid #3a3a3a;color:var(--cream);font:inherit;padding:14px 16px;outline:none;border-radius:2px;margin-top:6px}
+form.contact input:focus,form.contact textarea:focus{border-color:var(--teal)}
+form.contact textarea{min-height:140px;resize:vertical}
+form.contact .btn{justify-self:start;padding:16px 26px}
+.note{font-size:14px;color:var(--teal);min-height:1.4em}
+
+/* footer */
+footer{padding:60px 0 40px;text-align:center;border-top:1px solid var(--line)}
+footer .flogo{width:200px;margin:0 auto 20px}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin:20px 0;font-family:var(--wide);font-size:10px;letter-spacing:.4em}
+footer nav a:hover{color:var(--teal)}
+footer small{font-family:var(--wide);font-size:10px;letter-spacing:.4em;color:var(--muted)}
+
+/* player bar (like the model's sticky player) */
+.player{position:fixed;left:0;right:0;bottom:0;z-index:40;height:64px;background:rgba(10,10,10,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:0 4vw}
+.player .pcover{width:44px;height:44px;object-fit:cover;flex:none}
+.player .pinfo{flex:1;min-width:0;line-height:1.2}
+.player .pinfo b{display:block;font-family:var(--display);font-size:20px;letter-spacing:.04em;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player .pinfo span{font-family:var(--cond);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.player .ctrl{display:flex;gap:8px}
+.player .ctrl button,.player .ctrl a{width:40px;height:40px;border-radius:50%;border:1px solid #444;background:none;color:var(--cream);display:grid;place-items:center;cursor:pointer;font-size:14px}
+.player .ctrl a.go{background:var(--teal);border-color:var(--teal);color:#000}
+.eq{display:flex;gap:3px;align-items:flex-end;height:22px}
+.eq i{width:3px;background:var(--teal);animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}.eq i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:4px}50%{height:22px}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero .symbol,.eq i{animation:none}html{scroll-behavior:auto}}
+
+/* responsive */
+@media (max-width:900px){
+  .about-grid,.mail .inner,.press,.contact-grid{grid-template-columns:1fr}
+  .about-photo{order:-1}
+  .sets{grid-template-columns:1fr}
+  .photos{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px}
+  .photos .ph{grid-column:span 1!important;grid-row:span 1!important}
+  .photos .p1{grid-column:span 2!important;grid-row:span 2!important}
+  .frame{padding:28px 22px}
+  #contact{background-attachment:scroll}
+  .press .collage{max-width:340px}
+  .player .eq{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- top bar -->
+<div class="topbar" id="topbar">
+  <button class="menu-btn" id="openMenu" aria-label="Open menu"><span class="burger"></span>MENU</button>
+  <a class="mini-logo" href="#top" aria-label="Marco Pecoraro home"><img src="img/logo.webp" alt="Marco Pecoraro"></a>
+</div>
+
+<div class="overlay" id="menu" aria-hidden="true">
+  <button class="close" id="closeMenu">CLOSE ✕</button>
+  <nav>
+    <a href="#about">About</a><a href="#news">Events</a><a href="#songs">Releases</a><a href="#photos">Photos</a><a href="#videos">Sets</a><a href="#press">Press</a><a href="#contact">Booking</a>
+  </nav>
+  <img class="ov-stripe" src="img/stripe.webp" alt="">
+</div>
+
+<!-- header -->
+<header class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="Marco Pecoraro playing behind Pioneer DJ decks"></div>
+  <p class="kicker">OFFICIAL WEBSITE</p>
+  <img class="symbol" src="img/symbol.webp" alt="">
+  <h1 class="logo"><img src="img/logo.webp" alt="Marco Pecoraro"><span>Marco Pecoraro</span></h1>
+  <img class="stripe" src="img/stripe.webp" alt="">
+  <p class="tagline">DJ · Producer · Sound Engineer — House / Tech House / Minimal · Deep Tech</p>
+  <div class="socials" id="socials"></div>
+  <a href="#about" class="scroll-cue">SCROLL ↓</a>
+</header>
+
+<!-- about -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">01</span><h2>About</h2><span class="rule"></span></div>
+    <div class="about-grid">
+      <div class="rv">
+        <div class="frame">
+          <p>Marco Pecoraro is a Venezuelan DJ and producer whose sound is rooted in House, Tech House and mainly Minimal / Deep Tech, delivering groove-driven sets influenced by the underground European club scene.</p>
+          <p>Inspired by the sound of 90s house and the minimalist groove emerging from the UK, his artistic vision was further shaped after experiencing London's club culture at the iconic <strong>Fabric</strong> — a pivotal moment that helped define his musical direction.</p>
+          <p>He later moved to Madrid, where he graduated as a Sound Engineer at the renowned <strong>SAE Institute</strong>, strengthening both his technical knowledge and creative approach to electronic music.</p>
+          <p>As a producer, his tracks have started to gain traction within the international underground circuit, receiving DJ support from some of the most respected names in the global house and tech house scene.</p>
+          <p>Known for his carefully curated selections, rolling grooves and dancefloor-focused energy, Marco Pecoraro continues to develop a sound that connects deeply with club audiences while expanding his presence across the international electronic music scene.</p>
+        </div>
+        <div class="facts">
+          <div><b>VE · ES</b><span>Venezuela → Madrid</span></div>
+          <div><b>SAE</b><span>Sound Engineer</span></div>
+          <div><b>12+</b><span>Club dates · 4 countries</span></div>
+        </div>
+      </div>
+      <div class="about-photo rv">
+        <img src="img/about.webp" alt="Marco Pecoraro in sunglasses with headphones around his neck">
+        <div class="cap">MINIMAL · DEEP TECH</div>
+      </div>
+    </div>
+    <div class="supported rv">
+      <h3>SUPPORTED BY</h3>
+      <ul><li>The Martinez Brothers</li><li>Marco Carola</li><li>Mason Collective</li><li>Fletch</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- mailing list -->
+<div class="mail">
+  <div class="wrap inner rv">
+    <div>
+      <h3>Join the <em>groove</em> list</h3>
+      <p>New releases, IDs, sets and upcoming dates — straight to your inbox.</p>
+    </div>
+    <div>
+      <form id="mailForm" autocomplete="on">
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+      <p class="hint" id="mailNote">Check your inbox (and spam folder) to confirm.</p>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top:90px"><div class="divider"></div></div>
+
+<!-- events (news) -->
+<section id="news" style="padding-top:70px">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">02</span><h2>Latest events</h2><span class="rule"></span></div>
+    <div class="events" id="events"></div>
+  </div>
+</section>
+
+<!-- releases (songs) -->
+<section id="songs">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">03</span><h2>Latest releases</h2><span class="rule"></span></div>
+    <div class="store-logos rv">AVAILABLE ON <a id="lnkBeatport" href="#">BEATPORT ↗</a><a id="lnkBandcamp" href="#">BANDCAMP ↗</a><a id="lnkSpotify2" href="#">SPOTIFY ↗</a></div>
+    <div class="releases" id="releases"></div>
+  </div>
+</section>
+
+<!-- photos -->
+<section id="photos">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">04</span><h2>Photos</h2><span class="rule"></span></div>
+    <div class="photos rv">
+      <div class="ph p1"><img src="img/hero.webp" alt="Marco Pecoraro mixing on Pioneer DJ gear" style="object-position:60% 30%"></div>
+      <div class="ph p2"><img src="img/about.webp" alt="Marco Pecoraro outdoors in sunglasses with headphones" style="object-position:70% 35%"></div>
+      <div class="ph p3 cut"><img src="img/cutout-cover.webp" alt="Marco Pecoraro portrait in printed shirt"></div>
+      <div class="ph p4 cut p"><img src="img/symbol.webp" alt="Marco Pecoraro symbol" style="object-fit:contain;padding:22px;object-position:center"></div>
+      <div class="ph p5 cut o"><img src="img/cutout-orange.webp" alt="Marco Pecoraro seated in orange t-shirt"></div>
+      <div class="ph p6 cut p"><img src="img/cutout-pink.webp" alt="Marco Pecoraro side profile in pink t-shirt"></div>
+      <div class="ph p7"><img src="img/collage.webp" alt="Painted collage artwork from the Marco Pecoraro press kit"></div>
+    </div>
+  </div>
+</section>
+
+<!-- sets (videos) -->
+<section id="videos">
+  <img class="bg-hand" src="img/hand-1.webp" alt="">
+  <img class="bg-lasers" src="img/lasers.webp" alt="">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">05</span><h2>Sets &amp; videos</h2><span class="rule"></span></div>
+    <div class="sets rv" id="sets"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- press -->
+<section id="press">
+  <div class="wrap press">
+    <div class="collage rv">
+      <img src="img/hand-2.webp" alt="Neon hand artwork from the press kit" style="object-fit:cover;background:#0b0b0b">
+      <img class="sym" src="img/symbol.webp" alt="">
+    </div>
+    <div class="rv">
+      <div class="sec-head"><span class="num">06</span><h2>Press</h2><span class="rule"></span></div>
+      <p>For promoters, venues and media: the official 2026 press kit with bio, past events, releases and high-resolution photos. Request the full package and it will be sent within 24 hours.</p>
+      <div class="dl" id="pressLinks"></div>
+      <div class="polite"><img src="img/polite.webp" alt="Polite"> Co-founder of the events brand Polite — Madrid · Barcelona · Valencia (VE).</div>
+    </div>
+  </div>
+</section>
+
+<!-- contact -->
+<section id="contact">
+  <div class="shade">
+    <div class="wrap">
+      <div class="sec-head rv"><span class="num">07</span><h2>Booking</h2><span class="rule"></span></div>
+      <div class="contact-grid">
+        <div class="rv">
+          <div class="booking-card">
+            <div class="band"><b>BOOKING</b><span id="emailBand"></span></div>
+            <div class="body"><code id="emailText"></code><button class="btn" id="copyMail">COPY</button></div>
+          </div>
+          <div class="content-links">
+            <h3>CONTENT</h3>
+            <div class="socials" id="socials2" style="justify-content:flex-start"></div>
+          </div>
+        </div>
+        <form class="contact rv" id="contactForm">
+          <div><label for="cName">NAME</label><input id="cName" name="name" required></div>
+          <div><label for="cEmail">EMAIL</label><input id="cEmail" name="email" type="email" required></div>
+          <div><label for="cSubject">SUBJECT</label><input id="cSubject" name="subject" placeholder="Booking — venue, city, date"></div>
+          <div><label for="cMsg">MESSAGE</label><textarea id="cMsg" name="message" required></textarea></div>
+          <button class="btn" type="submit">SEND MESSAGE</button>
+          <p class="note" id="contactNote"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- mailing list (repeat, compact) + footer -->
+<footer>
+  <div class="wrap">
+    <img class="flogo" src="img/logo.webp" alt="Marco Pecoraro">
+    <div class="divider" style="width:min(420px,80vw)"></div>
+    <nav><a href="#about">ABOUT</a><a href="#news">EVENTS</a><a href="#songs">RELEASES</a><a href="#photos">PHOTOS</a><a href="#videos">SETS</a><a href="#press">PRESS</a><a href="#contact">BOOKING</a></nav>
+    <small>MARCO PECORARO ® 2026</small>
+  </div>
+</footer>
+
+<!-- sticky player -->
+<div class="player">
+  <img class="pcover" id="pCover" src="img/rel-revolution.webp" alt="">
+  <div class="pinfo"><b id="pTitle">Revolution</b><span id="pSub">Space Of Sound Records</span></div>
+  <div class="eq"><i></i><i></i><i></i><i></i></div>
+  <div class="ctrl">
+    <button id="pPrev" aria-label="Previous release">⏮</button>
+    <a class="go" id="pGo" href="#" aria-label="Listen">▶</a>
+    <button id="pNext" aria-label="Next release">⏭</button>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox"><img alt=""></div>
+
+<script>
+/* ===== LINKS — edit here ===== */
+const EMAIL = "pecoraromusic@gmail.com";
+const LINKS = {
+  instagram:  "https://www.instagram.com/marcopecoraromusic",
+  soundcloud: "https://soundcloud.com/marco-pecoraro-2",
+  beatport:   "https://www.beatport.com/artist/marco-pecoraro/809353",
+  spotify:    "https://open.spotify.com/artist/1CEB7HoszJCrPSwbB2rjzR",
+  bandcamp:   "https://marcopecoraro.bandcamp.com/"
+};
+const bp = q => "https://www.beatport.com/search?q=" + encodeURIComponent("Marco Pecoraro " + q);
+const bc = q => LINKS.bandcamp;
+
+const ICONS = {
+  instagram:'<svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c-2.7 0-3 0-4 .1-1.1 0-1.8.2-2.5.5-.7.3-1.2.6-1.8 1.2S2.9 5.1 2.6 5.8c-.3.6-.5 1.4-.5 2.5-.1 1-.1 1.4-.1 4s0 3 .1 4c0 1.1.2 1.8.5 2.5.3.7.6 1.2 1.2 1.8s1.1.9 1.8 1.2c.6.3 1.4.5 2.5.5 1 .1 1.4.1 4 .1s3 0 4-.1c1.1 0 1.8-.2 2.5-.5.7-.3 1.2-.6 1.8-1.2s.9-1.1 1.2-1.8c.3-.6.5-1.4.5-2.5.1-1 .1-1.4.1-4s0-3-.1-4c0-1.1-.2-1.8-.5-2.5-.3-.7-.6-1.2-1.2-1.8s-1.1-.9-1.8-1.2c-.6-.3-1.4-.5-2.5-.5-1-.1-1.3-.1-4-.1zm0 1.8c2.6 0 2.9 0 4 .1 1 0 1.5.2 1.8.3.5.2.8.4 1.1.7.3.3.6.7.7 1.1.1.4.3.9.3 1.8.1 1 .1 1.3.1 4s0 2.9-.1 4c0 1-.2 1.5-.3 1.8-.2.5-.4.8-.7 1.1-.3.3-.7.6-1.1.7-.4.1-.9.3-1.8.3-1 .1-1.3.1-4 .1s-2.9 0-4-.1c-1 0-1.5-.2-1.8-.3-.5-.2-.8-.4-1.1-.7-.3-.3-.6-.7-.7-1.1-.1-.4-.3-.9-.3-1.8-.1-1-.1-1.3-.1-4s0-2.9.1-4c0-1 .2-1.5.3-1.8.2-.5.4-.8.7-1.1.3-.3.7-.6 1.1-.7.4-.1.9-.3 1.8-.3 1-.1 1.4-.1 4-.1z"/></svg>',
+  spotify:'<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.6.6 0 0 1-.9.2c-2.4-1.5-5.4-1.8-8.9-1a.6.6 0 1 1-.3-1.2c3.9-.9 7.2-.5 9.9 1.1.3.2.4.6.2.9zm1.2-2.7a.8.8 0 0 1-1.1.3c-2.7-1.7-6.9-2.2-10.1-1.2a.8.8 0 1 1-.5-1.5c3.7-1.1 8.3-.6 11.4 1.3.4.3.5.8.3 1.1zm.1-2.8C14.6 9 9.2 8.8 6.1 9.7a1 1 0 1 1-.6-1.8c3.6-1.1 9.5-.9 13.3 1.3a1 1 0 0 1-.9 1.7z"/></svg>',
+  soundcloud:'<svg viewBox="0 0 24 24"><path d="M1 14.5c0 1 .5 1.8 1 1.8V12.7c-.5 0-1 .8-1 1.8zm2.4-3v5.8h.9v-6.3c-.3 0-.6.2-.9.5zm2.1-1.2v7h.9V10c-.3 0-.6.1-.9.3zm2.1-.4v7.4h.9V9.6l-.9.3zm2.2-1v8.4h.9V8.1c-.3.2-.6.5-.9.8zm8.3.9c-.3 0-.7.1-1 .2A5.2 5.2 0 0 0 12 6.6c-.6 0-1.1.1-1.6.3v10.4h8.2a3.4 3.4 0 0 0 0-6.8z"/></svg>',
+  youtube:'<svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12c0 1.6.1 3.2.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.5-3.2.5-4.8s-.1-3.2-.5-4.8zM9.7 15V9l5.8 3-5.8 3z"/></svg>',
+  beatport:'<svg viewBox="0 0 24 24"><path d="M14.6 9.3a5.3 5.3 0 0 0-3.6 1.4l3.6-3.6V2h-2.4v4.4L8.4 10.2a5.3 5.3 0 1 0 6.2-.9zm0 8.4a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2z"/></svg>',
+  bandcamp:'<svg viewBox="0 0 24 24"><path d="M0 18.7 7.3 5.3H24l-7.3 13.4z"/></svg>'
+};
+const NAMES = {instagram:"Instagram",spotify:"Spotify",soundcloud:"SoundCloud",youtube:"YouTube",beatport:"Beatport",bandcamp:"Bandcamp"};
+
+function socialRow(el, keys){
+  el.innerHTML = keys.map(k => `<a href="${LINKS[k]}" target="_blank" rel="noopener" aria-label="${NAMES[k]}">${ICONS[k]}${NAMES[k]}</a>`).join("");
+}
+socialRow(document.getElementById("socials"), ["instagram","spotify","soundcloud","beatport","bandcamp"]);
+socialRow(document.getElementById("socials2"), ["spotify","soundcloud","instagram","bandcamp"]);
+document.getElementById("lnkBeatport").href = LINKS.beatport;
+document.getElementById("lnkBandcamp").href = LINKS.bandcamp;
+document.getElementById("lnkSpotify2").href = LINKS.spotify;
+document.querySelectorAll('.store-logos a').forEach(a=>{a.target="_blank";a.rel="noopener"});
+
+/* ===== Events (presskit: Latest Events) ===== */
+const EVENTS = [
+  {img:"ev-orlando", title:"Celine",          city:"Orlando · FL · USA",        year:"2022"},
+  {img:"ev-miami",   title:"1-800 Lucky",     city:"Miami · FL · USA",          year:"2022"},
+  {img:"ev-nyc",     title:"The Vibes",       city:"New York City · USA",       year:"2022"},
+  {img:"ev-ensis1",  title:"Ensis",           city:"Valencia · Venezuela",      year:"2021"},
+  {img:"ev-ensis2",  title:"Ensis",           city:"Valencia · Venezuela",      year:"2021"},
+  {img:"ev-polite",  title:"Polite",          city:"Valencia · Venezuela",      year:"2021"},
+  {img:"ev-social",  title:"Social Dancing",  city:"Caracas · Venezuela",       year:"2021"},
+  {img:"ev-goya",    title:"Goya",            city:"Madrid · Spain",            year:"2020"},
+  {img:"ev-sky",     title:"Sky Connection",  city:"Madrid · Spain",            year:"2020"},
+  {img:"ev-ssoul",   title:"SSoul",           city:"Barcelona · Spain",         year:"2019"},
+  {img:"ev-alive",   title:"Alive — After Party", city:"Madrid · Spain",        year:"2019"},
+  {img:"ev-madrid",  title:"Birthday Bash",   city:"Madrid · Spain",            year:"2019"}
+];
+document.getElementById("events").innerHTML = EVENTS.map(e => `
+  <article class="ev rv">
+    <div class="thumb"><img loading="lazy" src="img/${e.img}.webp" alt="${e.title} flyer — ${e.city} ${e.year}"></div>
+    <div class="meta"><time>${e.year}</time><h4>${e.title}</h4><span class="city">${e.city}</span>
+    <a class="more" href="${LINKS.instagram}" target="_blank" rel="noopener">See more →</a></div>
+  </article>`).join("");
+
+/* ===== Releases (presskit: Latest Releases) ===== */
+const RELEASES = [
+  {img:"rel-revolution", title:"Revolution",          sub:"Space Of Sound Records", store:"Beatport", url:bp("Revolution"), tag:"BEATPORT"},
+  {img:"rel-lavaina",    title:"La Vaina",            sub:"Space Of Sound Records", store:"Beatport", url:bp("La Vaina"), tag:"BEATPORT"},
+  {img:"rel-gozen",      title:"Pa Que Se Lo Gozen",  sub:"Rituals",                store:"Beatport", url:bp("Pa Que Se Lo Gozen"), tag:"BEATPORT"},
+  {img:"rel-menina",     title:"Menina",              sub:"Pool At Noon",           store:"Beatport", url:bp("Menina"), tag:"BEATPORT"},
+  {img:"rel-numerouno",  title:"Numero Uno",          sub:"Original First Mix",     store:"Bandcamp", url:bc("Numero Uno"), tag:"BANDCAMP"},
+  {img:"rel-edits",      title:"Pecoraro Edits Vol. 1", sub:"Edits",                store:"Bandcamp", url:bc("Pecoraro Edits"), tag:"BANDCAMP"},
+  {img:"rel-bigl",       title:"The Big L",           sub:"Original Mix",           store:"Bandcamp", url:bc("The Big L"), tag:"BANDCAMP"}
+];
+document.getElementById("releases").innerHTML = RELEASES.map(r => `
+  <article class="rel rv">
+    <a href="${r.url}" target="_blank" rel="noopener" aria-label="Listen to ${r.title}">
+      <span class="tag">${r.tag}</span>
+      <div class="cover"><img loading="lazy" src="img/${r.img}.webp" alt="${r.title} cover art"></div>
+    </a>
+    <h4>${r.title}</h4><div class="sub">Marco Pecoraro · ${r.sub}</div>
+    <a class="listen" href="${r.url}" target="_blank" rel="noopener">Listen ↗</a>
+  </article>`).join("");
+
+/* ===== Sets / videos ===== */
+const SETS = [
+  {img:"hero",  small:"SOUNDCLOUD · LIVE", title:"Live @ Booksflea Coffee Party", url:"https://soundcloud.com/marco-pecoraro-2/marco-pecoraro-live-booksflea"},
+  {img:"about", small:"SOUNDCLOUD · SNIPPET", title:"Revolution — Space Of Sound", url:"https://soundcloud.com/spaceofsoundrecords/marco-pecoraro-revolution-snippet-1"},
+  {img:"lasers",small:"SPOTIFY · ARTIST", title:"All releases on Spotify", url:LINKS.spotify, dark:true}
+];
+document.getElementById("sets").innerHTML = SETS.map(s => `
+  <a class="set" href="${s.url}" target="_blank" rel="noopener" ${s.dark?'style="background:#0b0b0b"':''}>
+    <img loading="lazy" src="img/${s.img}.webp" alt="" ${s.dark?'style="object-fit:contain;opacity:.7"':''}>
+    <span class="play"></span>
+    <div><small>${s.small}</small><b>${s.title}</b></div>
+  </a>`).join("");
+
+/* ===== Press links ===== */
+const mailto = (subj, body="") => `mailto:${EMAIL}?subject=${encodeURIComponent(subj)}${body?`&body=${encodeURIComponent(body)}`:""}`;
+document.getElementById("pressLinks").innerHTML = `
+  <a href="${mailto("Press kit request — Marco Pecoraro")}">Press kit 2026 (PDF) <span>REQUEST ↗</span></a>
+  <a href="${mailto("Press photos request — Marco Pecoraro")}">Press photos (HI-RES) <span>REQUEST ↗</span></a>
+  <a href="${mailto("Logo pack request — Marco Pecoraro")}">Logos &amp; symbol <span>REQUEST ↗</span></a>
+  <a href="${LINKS.beatport}" target="_blank" rel="noopener">Beatport artist profile <span>OPEN ↗</span></a>`;
+
+/* ===== Booking ===== */
+document.getElementById("emailBand").textContent = EMAIL.toUpperCase();
+document.getElementById("emailText").textContent = EMAIL;
+document.getElementById("copyMail").addEventListener("click", async e => {
+  try { await navigator.clipboard.writeText(EMAIL); e.target.textContent = "COPIED ✓"; }
+  catch { e.target.textContent = "SELECT ↑"; }
+  setTimeout(() => e.target.textContent = "COPY", 1800);
+});
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target, subj = f.subject.value || "Booking enquiry — Marco Pecoraro";
+  const body = `${f.message.value}\n\n— ${f.name.value} (${f.email.value})`;
+  window.location.href = mailto(subj, body);
+  document.getElementById("contactNote").textContent = `Your email app should open now. If it doesn't, write directly to ${EMAIL}.`;
+});
+document.getElementById("mailForm").addEventListener("submit", e => {
+  e.preventDefault();
+  if (e.target.website.value) return; // honeypot
+  const em = e.target.email.value;
+  window.location.href = mailto("Mailing list — subscribe", `Please add ${em} to the Marco Pecoraro mailing list.`);
+  document.getElementById("mailNote").textContent = `Thanks! If your email app didn't open, send "subscribe" to ${EMAIL}.`;
+});
+
+/* ===== Menu ===== */
+const menu = document.getElementById("menu");
+const toggle = o => { menu.classList.toggle("open", o); menu.setAttribute("aria-hidden", !o); document.body.style.overflow = o ? "hidden" : ""; };
+document.getElementById("openMenu").onclick = () => toggle(true);
+document.getElementById("closeMenu").onclick = () => toggle(false);
+menu.querySelectorAll("nav a").forEach(a => a.onclick = () => toggle(false));
+document.addEventListener("keydown", e => { if (e.key === "Escape") { toggle(false); lb.classList.remove("open"); } });
+const topbar = document.getElementById("topbar");
+addEventListener("scroll", () => topbar.classList.toggle("solid", scrollY > 60), {passive:true});
+
+/* ===== Lightbox ===== */
+const lb = document.getElementById("lightbox");
+document.querySelectorAll(".ph img").forEach(img => img.addEventListener("click", () => { lb.querySelector("img").src = img.src; lb.querySelector("img").alt = img.alt; lb.classList.add("open"); }));
+lb.onclick = () => lb.classList.remove("open");
+
+/* ===== Player bar (cycles releases) ===== */
+let pi = 0;
+function setPlayer(i){
+  pi = (i + RELEASES.length) % RELEASES.length; const r = RELEASES[pi];
+  document.getElementById("pCover").src = `img/${r.img}.webp`;
+  document.getElementById("pTitle").textContent = r.title;
+  document.getElementById("pSub").textContent = `${r.sub} · ${r.store}`;
+  const go = document.getElementById("pGo"); go.href = r.url; go.target = "_blank"; go.rel = "noopener";
+}
+document.getElementById("pPrev").onclick = () => setPlayer(pi - 1);
+document.getElementById("pNext").onclick = () => setPlayer(pi + 1);
+setPlayer(0);
+
+/* ===== Reveal on scroll ===== */
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), {threshold:.12});
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
