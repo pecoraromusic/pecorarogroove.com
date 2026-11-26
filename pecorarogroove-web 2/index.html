@@ -58,6 +58,15 @@ h1.logo span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 
 .socials a{display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(238,231,216,.28);background:rgba(7,7,7,.45);backdrop-filter:blur(6px);font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;transition:all .2s;border-radius:2px}
 .socials a svg{width:18px;height:18px;fill:currentColor}
 .socials a:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.drop{display:flex;align-items:center;gap:16px;margin:0 auto 26px;padding:10px 12px 10px 10px;max-width:640px;width:94vw;background:rgba(7,7,7,.72);border:1px solid rgba(255,221,126,.45);backdrop-filter:blur(8px);text-align:left}
+.drop .th{flex:0 0 132px;aspect-ratio:16/9;background:#000 center/cover no-repeat;position:relative}
+.drop .th:after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:20px;text-shadow:0 0 10px #000}
+.drop small{display:block;font-family:var(--wide);font-size:9px;letter-spacing:.4em;color:var(--sun)}
+.drop b{display:block;font-family:var(--display);font-size:30px;letter-spacing:.04em;line-height:1.05;margin:4px 0 8px}
+.drop .btns{display:flex;flex-wrap:wrap;gap:8px}
+.drop .btns a{font-family:var(--cond);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(238,231,216,.4)}
+.drop .btns a:hover{border-color:var(--teal);color:var(--teal)}
+@media (max-width:560px){.drop .th{flex-basis:96px}.drop b{font-size:24px}}
 .scroll-cue{margin-top:40px;font-family:var(--wide);font-size:10px;letter-spacing:.5em;opacity:.6}
 
 /* ---------- sections ---------- */
@@ -264,6 +273,11 @@ footer small{font-family:var(--wide);font-size:10px;letter-spacing:.4em;color:va
   <h1 class="logo"><img src="img/logo.webp" alt="Marco Pecoraro"><span>Marco Pecoraro</span></h1>
   <img class="stripe" src="img/stripe.webp" alt="">
   <p class="tagline">DJ · Producer · Sound Engineer — House / Tech House / Minimal · Deep Tech</p>
+  <div class="drop" id="newDrop">
+    <a class="th" href="https://www.youtube.com/watch?v=8LuBe1d3GXw" target="_blank" rel="noopener" aria-label="Watch Back to Italian Roots on YouTube" style="background-image:url(https://i.ytimg.com/vi/8LuBe1d3GXw/mqdefault.jpg)"></a>
+    <div><small>NEW MIX · EPISODE 01</small><b>Back to Italian Roots</b>
+      <div class="btns"><a href="https://www.youtube.com/watch?v=8LuBe1d3GXw" target="_blank" rel="noopener">▶ Watch on YouTube</a><a href="https://soundcloud.com/marco-pecoraro-2/back-to-italian-roots" target="_blank" rel="noopener">Listen on SoundCloud ↗</a></div></div>
+  </div>
   <div class="socials" id="socials"></div>
   <a href="#about" class="scroll-cue">SCROLL ↓</a>
 </header>
@@ -512,13 +526,13 @@ document.getElementById("releases").innerHTML = RELEASES.map(r => `
 
 /* ===== Sets / videos ===== */
 const SETS = [
-  {img:"hero",  small:"SOUNDCLOUD · LIVE", title:"Live @ Booksflea Coffee Party", url:"https://soundcloud.com/marco-pecoraro-2/marco-pecoraro-live-booksflea"},
-  {img:"about", small:"SOUNDCLOUD · SNIPPET", title:"Revolution — Space Of Sound", url:"https://soundcloud.com/spaceofsoundrecords/marco-pecoraro-revolution-snippet-1"},
-  {img:"lasers",small:"SPOTIFY · ARTIST", title:"All releases on Spotify", url:LINKS.spotify, dark:true}
+  {img:"hero", src:"https://i.ytimg.com/vi/8LuBe1d3GXw/hqdefault.jpg", small:"YOUTUBE · EPISODE 01", title:"Back to Italian Roots — Live Mix", url:"https://www.youtube.com/watch?v=8LuBe1d3GXw"},
+  {img:"lasers", small:"SOUNDCLOUD · EPISODE 01", title:"Back to Italian Roots — Listen", url:"https://soundcloud.com/marco-pecoraro-2/back-to-italian-roots"},
+  {img:"hero",  small:"SOUNDCLOUD · LIVE", title:"Live @ Booksflea Coffee Party", url:"https://soundcloud.com/marco-pecoraro-2/marco-pecoraro-live-booksflea"}
 ];
 document.getElementById("sets").innerHTML = SETS.map(s => `
   <a class="set" href="${s.url}" target="_blank" rel="noopener" ${s.dark?'style="background:#0b0b0b"':''}>
-    <img loading="lazy" src="img/${s.img}.webp" alt="" ${s.dark?'style="object-fit:contain;opacity:.7"':''}>
+    <img loading="lazy" src="${s.src||`img/${s.img}.webp`}" alt="" ${s.dark?'style="object-fit:contain;opacity:.7"':''}>
     <span class="play"></span>
     <div><small>${s.small}</small><b>${s.title}</b></div>
   </a>`).join("");
