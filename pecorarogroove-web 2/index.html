@@ -490,6 +490,7 @@ document.getElementById("events").innerHTML = EVENTS.map(e => `
 
 /* ===== Releases (presskit: Latest Releases) ===== */
 const RELEASES = [
+  {img:"rel-gottafunky", src:"https://geo-media.beatport.com/image_size/500x500/e78f1712-2ff2-4a00-94ff-e872a040cdef.jpg", title:"Gotta Funky", sub:"Lovemusic Records", store:"Beatport", url:"https://www.beatport.com/es/track/gotta-funky/29101285", tag:"NEW · BEATPORT"},
   {img:"rel-revolution", title:"Revolution",          sub:"Space Of Sound Records", store:"Beatport", url:bp("Revolution"), tag:"BEATPORT"},
   {img:"rel-lavaina",    title:"La Vaina",            sub:"Space Of Sound Records", store:"Beatport", url:bp("La Vaina"), tag:"BEATPORT"},
   {img:"rel-gozen",      title:"Pa Que Se Lo Gozen",  sub:"Rituals",                store:"Beatport", url:bp("Pa Que Se Lo Gozen"), tag:"BEATPORT"},
@@ -502,7 +503,7 @@ document.getElementById("releases").innerHTML = RELEASES.map(r => `
   <article class="rel rv">
     <a href="${r.url}" target="_blank" rel="noopener" aria-label="Listen to ${r.title}">
       <span class="tag">${r.tag}</span>
-      <div class="cover"><img loading="lazy" src="img/${r.img}.webp" alt="${r.title} cover art"></div>
+      <div class="cover"><img loading="lazy" src="${r.src||`img/${r.img}.webp`}" alt="${r.title} cover art"></div>
     </a>
     <h4>${r.title}</h4><div class="sub">Marco Pecoraro · ${r.sub}</div>
     <a class="listen" href="${r.url}" target="_blank" rel="noopener">Listen ↗</a>
@@ -571,7 +572,7 @@ lb.onclick = () => lb.classList.remove("open");
 let pi = 0;
 function setPlayer(i){
   pi = (i + RELEASES.length) % RELEASES.length; const r = RELEASES[pi];
-  document.getElementById("pCover").src = `img/${r.img}.webp`;
+  document.getElementById("pCover").src = r.src || `img/${r.img}.webp`;
   document.getElementById("pTitle").textContent = r.title;
   document.getElementById("pSub").textContent = `${r.sub} · ${r.store}`;
   const go = document.getElementById("pGo"); go.href = r.url; go.target = "_blank"; go.rel = "noopener";
